@@ -11,9 +11,8 @@ Este proyecto automatiza el despliegue de un servidor web Apache sobre una image
   - `webapp.local`: Despliegue de un proyecto web previo (Validado y corregido según estándares W3C).
 - **Automatización:** Configuración de sitios, permisos y arranque de Apache gestionados íntegramente desde el `Dockerfile`.
 
-================================================================
+
         GUÍA DE DESPLIEGUE: SERVIDOR APACHE + DOCKER        
-================================================================
 
 [ PASO 1 ] CONFIGURACIÓN DEL DOMINIO LOCAL
 ----------------------------------------------------------------
