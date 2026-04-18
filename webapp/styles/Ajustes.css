@@ -1,0 +1,54 @@
+body{
+    background-color: #ffffff;
+}
+.main-nav{
+    display: flex;
+    margin: 16px;
+    justify-content: space-between;
+    border-radius: 20px;
+    align-items: center;
+    background-color: #303854;
+    /*falta aprender*/
+    padding: 25px 5%;
+    box-shadow: 0 6px 12px #c2cdd5;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+}
+.nav-logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #f6f3ea; /* Dorado SwiftY */
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.nav-logo img {
+    height: 35px;
+    border-radius: 50%;
+}
+.nav-links {
+    display: flex;
+    gap: 20px; /* Espacio exacto entre botones */
+}
+.nav-item {
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f6f3ea;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 1.0rem;
+    transition: all 0.5s ease; /* Suaviza el cambio de color */
+}
+/* Efecto al pasar el mouse */
+.nav-item:hover {
+    background-color: #c2cdd5;
+    color: #1a1a2e;
+}
+/* Estilo para la página donde estás parado */
+.nav-item.active {
+    background-color: #c2cdd5;
+    color: #1a1a2e;
+    
+}
