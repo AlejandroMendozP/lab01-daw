@@ -11,39 +11,38 @@ Este proyecto automatiza el despliegue de un servidor web Apache sobre una image
   - `webapp.local`: Despliegue de un proyecto web previo (Validado y corregido según estándares W3C).
 - **Automatización:** Configuración de sitios, permisos y arranque de Apache gestionados íntegramente desde el `Dockerfile`.
 
-## Estructura del Directorio
+================================================================
+        GUÍA DE DESPLIEGUE: SERVIDOR APACHE + DOCKER        
+================================================================
 
-lab01-daw/
-├── config/
-│   ├── developers.conf      # Configuración del VirtualHost 1
-│   └── webapp.conf          # Configuración del VirtualHost 2
-├── developers/              # Archivos fuente del sitio 'Developers'
-│   ├── img/
-│   ├── index.html
-│   ├── webstandards.html
-│   ├── contact.html
-│   ├── style.css
-│   └── script.js
-├── webapp/                  # Archivos fuente del proyecto previo
-│   └── index.html           
-└── Dockerfile               # Archivo de automatización de Docker
+[ PASO 1 ] CONFIGURACIÓN DEL DOMINIO LOCAL
+----------------------------------------------------------------
+Asegúrate de haber añadido esta línea en tu archivo "hosts" 
+(Ruta: C:\Windows\System32\drivers\etc\hosts) 
+* Recuerda editarlo como Administrador:
 
-Guía de Despliegue (Paso a Paso)
-Abre una terminal en la raíz de este proyecto y ejecuta los siguientes comandos:
+127.0.0.1    developers.local    webapp.local
 
-1. Construcción de la Imagen (Build)
-Se utiliza la bandera --no-cache para garantizar que Docker copie la versión más reciente de los archivos locales y no use capas antiguas en memoria.
 
-Bash
+[ PASO 2 ] CONSTRUCCIÓN DE LA IMAGEN
+----------------------------------------------------------------
+Abre tu terminal en la carpeta del proyecto y ejecuta este 
+comando para crear la imagen limpia (sin usar caché):
+
 docker build --no-cache -t proyecto-unsa .
-2. Ejecución del Contenedor (Run)
-Levantamos el contenedor en modo detached (-d), mapeando el puerto 80 interno de Apache al puerto 8080 de nuestra máquina anfitriona.
 
-Bash
+
+[ PASO 3 ] EJECUCIÓN DEL CONTENEDOR
+----------------------------------------------------------------
+Levanta el servidor mapeando el puerto 80 del contenedor al 
+puerto 8080 de tu computadora:
+
 docker run -d -p 8080:80 --name servidor-web proyecto-unsa
-3. Verificación de Estado
-Para confirmar que el contenedor está activo y Apache escuchando:
 
-Bash
-docker ps
-docker logs servidor-web
+
+[ PASO 4 ] ACCESO EN EL NAVEGADOR
+----------------------------------------------------------------
+El servidor ya está corriendo. Abre tu navegador y accede a:
+
+Equipo Developers: http://developers.local:8080
+Proyecto WebApp  : http://webapp.local:8080
